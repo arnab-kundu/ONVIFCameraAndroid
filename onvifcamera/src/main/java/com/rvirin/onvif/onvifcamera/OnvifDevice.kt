@@ -201,7 +201,7 @@ class OnvifDevice(val ipAddress: String, @JvmField val username: String, @JvmFie
                         val digestHeader = response.header("WWW-Authenticate")
                         val digestInformation = OnvifDigestInformation(username, password, pathForRequest(onvifRequest), digestHeader!!)
                         val authorizationHeader = digestInformation.authorizationHeader
-                        Log.d("AUTHORIZATION HEADER", authorizationHeader)
+                        Log.d("AUTHORIZATION HEADER", authorizationHeader?:"")
 
                         try {
                             request = Request.Builder().url(urlForRequest(onvifRequest))
