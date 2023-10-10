@@ -83,6 +83,8 @@ class MainActivity : AppCompatActivity(), OnvifListener {
         // We open StreamActivity and pass the rtsp URI
         if (currentDevice.isConnected) {
             currentDevice.rtspURI?.let { uri ->
+                Log.d(TAG, "buttonClicked: $uri")
+                Toast.makeText(this,"URI: $uri",Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, StreamActivity::class.java).apply {
                     putExtra(RTSP_URL, uri)
                 }
@@ -114,5 +116,9 @@ class MainActivity : AppCompatActivity(), OnvifListener {
                 toast?.show()
             }
         }
+    }
+
+    companion object{
+        private const val TAG = "MainActivity"
     }
 }

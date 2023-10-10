@@ -50,6 +50,7 @@ class StreamActivity : AppCompatActivity(), VlcListener, View.OnClickListener {
 
             if (!vlcVideoLibrary.isPlaying) {
                 val url = intent.getStringExtra(RTSP_URL)
+                Toast.makeText(this, "URL: $url", Toast.LENGTH_SHORT).show()
                 vlcVideoLibrary.play(url)
 
             } else {
